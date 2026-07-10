@@ -1,0 +1,380 @@
+/* ===========================================================
+   Design tokens
+=========================================================== */
+:root {
+  --bg: #F5F7FA;
+  --bg-raised: #FFFFFF;
+  --ink: #1E2A32;
+  --ink-soft: #4B5964;
+  --muted: #8A97A0;
+  --line: #DCE2E6;
+  --accent: #E9A23B;
+  --accent-ink: #6B4A12;
+  --teal: #4C7A6B;
+  --terminal-bg: #1E2A32;
+  --terminal-ink: #DCE9E4;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --max-w: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+/* ===========================================================
+   Nav
+=========================================================== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: rgba(245, 247, 250, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.nav__brand .dot { color: var(--accent); }
+
+.nav__links {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.nav__links a { transition: color 0.15s ease; }
+.nav__links a:hover,
+.nav__links a:focus-visible { color: var(--accent-ink); }
+
+/* ===========================================================
+   Hero
+=========================================================== */
+.hero {
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+  text-align: left;
+}
+
+.hero__tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: var(--bg-raised);
+  color: var(--accent-ink);
+  margin: 0 0 1.5rem;
+}
+.hero__tag-status { color: var(--muted); }
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.hero__role {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin: 0 0 2.5rem;
+}
+
+.terminal {
+  background: var(--terminal-bg);
+  color: var(--terminal-ink);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px -12px rgba(30, 42, 50, 0.35);
+  margin-bottom: 2.5rem;
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.04);
+}
+.terminal__dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+.terminal__path {
+  margin-left: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.terminal__body {
+  padding: 1.25rem 1.25rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+.terminal__body p { margin: 0 0 0.5rem; }
+.prompt { color: var(--accent); margin-right: 0.5rem; }
+.terminal__output { color: var(--terminal-ink); }
+.cursor { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero__cta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--teal);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.hero__cta:hover,
+.hero__cta:focus-visible { border-color: var(--teal); }
+
+/* ===========================================================
+   About
+=========================================================== */
+.about__text {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+.about__text strong { color: var(--ink); }
+
+/* ===========================================================
+   Changelog / Projects
+=========================================================== */
+.log__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 0 0 0.4rem;
+}
+.log__subtitle {
+  color: var(--muted);
+  margin: 0 0 2.5rem;
+}
+
+.log__list {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--line);
+}
+
+.entry {
+  position: relative;
+  padding-bottom: 2.75rem;
+}
+.entry:last-child { padding-bottom: 0; }
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -1.95rem;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--line);
+}
+
+.entry__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.entry__version {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-ink);
+}
+.entry__date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.entry__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+}
+.tag--python { background: #E9F0EC; color: var(--teal); }
+.tag--web { background: #FBEEDA; color: var(--accent-ink); }
+
+.entry__desc {
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+  max-width: 58ch;
+}
+
+.entry__links {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.entry__links a { color: var(--teal); }
+.entry__links a:hover,
+.entry__links a:focus-visible { text-decoration: underline; }
+
+/* ===========================================================
+   Skills
+=========================================================== */
+.skills__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 0 0 1.75rem;
+}
+
+.skills__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.skill__name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.skill__bar {
+  height: 8px;
+  background: var(--line);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.skill__bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--accent));
+  border-radius: 100px;
+}
+
+.skills__note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ===========================================================
+   Contact
+=========================================================== */
+.contact__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 0 0 0.6rem;
+}
+.contact__text {
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+}
+.contact__links {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+.contact__links a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.contact__links a:hover,
+.contact__links a:focus-visible {
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
+}
+
+/* ===========================================================
+   Footer
+=========================================================== */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.footer__version { color: var(--accent-ink); }
+
+/* ===========================================================
+   Focus visibility
+=========================================================== */
+a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* ===========================================================
+   Small screens
+=========================================================== */
+@media (max-width: 480px) {
+  section { padding: 3.5rem 1.25rem; }
+  .nav { padding: 1rem 1.25rem; }
+  .nav__links { gap: 1rem; }
+}
