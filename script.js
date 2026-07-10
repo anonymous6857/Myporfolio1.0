@@ -2,7 +2,7 @@
 // Respects users who've asked for reduced motion.
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const line = "developer-in-progress, learning Python";
+const line = "developer-in-progress, learning Python. Aiming at becoming an AI engineer";
 const target = document.getElementById('typedLine');
 
 if (target) {
